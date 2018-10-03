@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -30,6 +32,9 @@ public class LoginSteps {
 			options.setProfile(profile);		
 	        capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
 	        driver = new FirefoxDriver(capabilities);
+	        driver.manage().window().maximize();
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}		
 		driver.get("login page URL");
 		loginPage = new LoginPage(driver);
