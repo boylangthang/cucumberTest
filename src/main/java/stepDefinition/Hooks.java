@@ -9,7 +9,7 @@ public class Hooks {
         System.out.println("This will run before the Scenario");
         //start driver
     }	
-	
+	 
 	@After
     public void afterScenario(){
         System.out.println("This will run after the Scenario");
